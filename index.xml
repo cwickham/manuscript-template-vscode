@@ -146,7 +146,7 @@ Nacional (IGN). …</p>
     <caption>
       <p>Table 1: Recent historic eruptions on La Palma</p>
     </caption>
-    <table>
+    <table id="tbl-history">
       <thead>
         <tr>
           <th>Name</th>
@@ -242,7 +242,7 @@ Nacional (IGN). …</p>
 </ref-list>
 </back>
 
-<sub-article article-type="notebook">
+<sub-article article-type="notebook" id="nb-7-nb-article">
 <front-stub>
 <title-group>
 <article-title>La Palma Earthquakes</article-title>
@@ -300,11 +300,11 @@ Nacional (IGN). …</p>
 </front-stub>
 
 <body>
-<sec id="cell-961664a7-nb-article" specific-use="notebook-content">
+<sec id="fee08d37-nb-article" specific-use="notebook-content">
 <sec id="introduction-nb-article">
   <title>1 Introduction</title>
   </sec>
-  <sec id="c3df3b28-nb-article" specific-use="notebook-code">
+  <sec id="cell-0d74d37a-nb-article" specific-use="notebook-code">
   <code language="python">import matplotlib.pyplot as plt
 import numpy as np
 eruptions = [1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021]</code>
@@ -323,14 +323,14 @@ plt.show()</code>
   </fig>
   </sec>
   </sec>
-  <sec id="cell-04297db0-nb-article" specific-use="notebook-code">
+  <sec id="a969c123-nb-article" specific-use="notebook-code">
   <code language="python">avg_years_between_eruptions = np.mean(np.diff(eruptions[:-1]))
 avg_years_between_eruptions</code>
-  <sec id="04297db0-output-0-nb-article" specific-use="notebook-output">
+  <sec id="a969c123-output-0-nb-article" specific-use="notebook-output">
   <preformat>79.83333333333333</preformat>
   </sec>
   </sec>
-  <sec id="f99f3cde-nb-article" specific-use="notebook-content">
+  <sec id="ee396865-nb-article" specific-use="notebook-content">
   <p>Based on data up to and including 1971, eruptions on La Palma
   happen every 79.8 years on average.</p>
   <p>Studies of the magma systems feeding the volcano, such as Marrero
@@ -426,7 +426,7 @@ avg_years_between_eruptions</code>
   <code language="python">from matplotlib import colormaps
 cmap = colormaps['viridis_r']
 ax = df.plot.scatter(x=&quot;Longitude&quot;, y=&quot;Latitude&quot;, 
-                     s=40-df[&quot;Depth(km)&quot;], c=df[&quot;Magnitude&quot;], 
+                     s=47-df[&quot;Depth(km)&quot;], c=df[&quot;Magnitude&quot;], 
                      figsize=(12,10), grid=&quot;on&quot;, cmap=cmap)
 colorbar = ax.collections[0].colorbar
 colorbar.set_label(&quot;Magnitude&quot;)
@@ -472,7 +472,7 @@ plt.show()</code>
 
 
 </sub-article>
-<sub-article article-type="notebook">
+<sub-article article-type="notebook" id="nb-3-nb-1">
 <front-stub>
 <title-group>
 <article-title>Data Screening</article-title>
@@ -486,253 +486,196 @@ plt.show()</code>
 </name>
 <string-name>Steve Purves</string-name>
 </contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Wickham</surname>
+<given-names>Charlotte</given-names>
+</name>
+<string-name>Charlotte Wickham</string-name>
+<xref ref-type="author-note" rid="auth-note-2-nb-1">2</xref>
+</contrib>
 </contrib-group>
+<author-notes>
+<fn id="auth-note-2-nb-1" fn-type="author-note" symbol="2">Edited original
+notebook by Steve Purves</fn>
+</author-notes>
 </front-stub>
 
 <body>
-<sec id="cell-96cd123b-e010-4778-9afa-9ca125ef50cc-nb-1" specific-use="notebook-content">
-<p>Load and review the data, check that dates are loaded properly and
-filter data down to the events in La Palma only. The dataset itself
-contains all recent IGN earthquake data for Spanish territory.</p>
-</sec>
-<sec id="cell-0e75ded9-f2dc-40ca-884b-d124d0e37ee4-nb-1" specific-use="notebook-code">
+<sec id="c28c7681-nb-1" specific-use="notebook-code">
 <code language="python">import pandas as pd
 import matplotlib.pyplot as plt</code>
 </sec>
-<sec id="ba38c3c1-51d7-48d9-8056-c23a0bbfcd18-nb-1" specific-use="notebook-code">
-<code language="python">df = pd.read_csv('../data/catalogoComunSV_1663233588717.csv', sep=';')
-df.columns = ['Event', 'Date', 'Time', 'Latitude', 'Longitude', 'Depth(km)', 'Intensity','Magnitude', 'Type Mag', 'Location']
-df['Time'] = df['Time'].str.strip()
-df['Date'] = df['Date'].str.strip()
-df['DateTime'] = (df['Date'] + ' ' + df['Time']).apply(pd.to_datetime, format='%d/%m/%Y %H:%M:%S')
-df['Timestamp'] = pd.to_numeric(pd.to_datetime(df['DateTime']))
-df['Date'] = pd.to_datetime(df['Date'], format=&quot;%d/%m/%Y&quot;)
+<sec id="cell-7a95c617-nb-1" specific-use="notebook-content">
+<p>Import <monospace>la-palma.csv</monospace> - a clean subset of
+<ext-link ext-link-type="uri" xlink:href="https://github.com/Notebooks-Now/submission-quarto-full/blob/main/data/catalogoComunSV_1663233588717.csv"><monospace>catalogoComunSV_1663233588717.csv</monospace></ext-link>:</p>
+</sec>
+<sec id="c6053338-nb-1" specific-use="notebook-code">
+<code language="python">df = pd.read_csv('la-palma.csv')
+df['DateTime'] = pd.to_datetime(df['DateTime'])
 df = df.sort_values(by=['DateTime'], ascending=True)
 df.head()</code>
-<sec id="ba38c3c1-51d7-48d9-8056-c23a0bbfcd18-output-0-nb-1" specific-use="notebook-output">
+<sec id="c6053338-output-0-nb-1" specific-use="notebook-output">
 <table-wrap>
   <table border="1">
     <thead>
       <tr style="text-align: right;">
         <th></th>
-        <th>Event</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Latitude</th>
         <th>Longitude</th>
+        <th>Latitude</th>
         <th>Depth(km)</th>
-        <th>Intensity</th>
         <th>Magnitude</th>
-        <th>Type Mag</th>
-        <th>Location</th>
         <th>DateTime</th>
-        <th>Timestamp</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>0</td>
-        <td>es2017aaaga</td>
-        <td>2017-01-01</td>
-        <td>00:48:55</td>
-        <td>36.6765</td>
-        <td>-11.2736</td>
-        <td>0.0</td>
-        <td></td>
-        <td>2.8</td>
-        <td>6</td>
-        <td>SW CABO DE SAN VICENTE</td>
-        <td>2017-01-01 00:48:55</td>
-        <td>1483231735000000000</td>
+        <td>11346</td>
+        <td>-17.8349</td>
+        <td>28.5346</td>
+        <td>26.0</td>
+        <td>1.6</td>
+        <td>2017-03-09 23:44:06+00:00</td>
       </tr>
       <tr>
-        <td>1</td>
-        <td>es2017aaakn</td>
-        <td>2017-01-01</td>
-        <td>01:28:17</td>
-        <td>28.1119</td>
-        <td>-16.2225</td>
-        <td>21.0</td>
-        <td></td>
-        <td>0.9</td>
-        <td>4</td>
-        <td>ATLÁNTICO-CANARIAS</td>
-        <td>2017-01-01 01:28:17</td>
-        <td>1483234097000000000</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>es2017aaang</td>
-        <td>2017-01-01</td>
-        <td>01:49:08</td>
-        <td>42.0648</td>
-        <td>-7.8471</td>
-        <td>22.0</td>
-        <td></td>
+        <td>11343</td>
+        <td>-17.8459</td>
+        <td>28.5491</td>
+        <td>27.0</td>
         <td>2.0</td>
-        <td>4</td>
-        <td>SW RAIRIZ DE VEIGA.OU</td>
-        <td>2017-01-01 01:49:08</td>
-        <td>1483235348000000000</td>
+        <td>2017-03-10 00:16:10+00:00</td>
       </tr>
       <tr>
-        <td>3</td>
-        <td>es2017aabdd</td>
-        <td>2017-01-01</td>
-        <td>02:36:20</td>
-        <td>38.3826</td>
-        <td>-9.3767</td>
-        <td>11.0</td>
-        <td></td>
-        <td>2.2</td>
-        <td>4</td>
-        <td>ATLÁNTICO-PORTUGAL</td>
-        <td>2017-01-01 02:36:20</td>
-        <td>1483238180000000000</td>
+        <td>11344</td>
+        <td>-17.8863</td>
+        <td>28.5008</td>
+        <td>20.0</td>
+        <td>2.1</td>
+        <td>2017-03-10 00:16:11+00:00</td>
       </tr>
       <tr>
-        <td>4</td>
-        <td>es2017aabkh</td>
-        <td>2017-01-01</td>
-        <td>03:35:03</td>
-        <td>36.2492</td>
-        <td>-7.8227</td>
-        <td>13.0</td>
-        <td></td>
-        <td>1.9</td>
-        <td>4</td>
-        <td>GOLFO DE CÁDIZ</td>
-        <td>2017-01-01 03:35:03</td>
-        <td>1483241703000000000</td>
+        <td>11345</td>
+        <td>-17.8657</td>
+        <td>28.5204</td>
+        <td>30.0</td>
+        <td>1.6</td>
+        <td>2017-03-10 03:20:26+00:00</td>
+      </tr>
+      <tr>
+        <td>11342</td>
+        <td>-17.7156</td>
+        <td>28.5985</td>
+        <td>0.0</td>
+        <td>1.6</td>
+        <td>2017-08-21 02:06:55+00:00</td>
       </tr>
     </tbody>
   </table>
 </table-wrap>
 </sec>
 </sec>
-<sec id="d81abbcf-d7f2-43e8-ae0c-5f6ce44e6046-nb-1" specific-use="notebook-code">
+<sec id="e01c7d39-nb-1" specific-use="notebook-code">
 <code language="python">df.describe()</code>
-<sec id="d81abbcf-d7f2-43e8-ae0c-5f6ce44e6046-output-0-nb-1" specific-use="notebook-output">
+<sec id="e01c7d39-output-0-nb-1" specific-use="notebook-output">
 <table-wrap>
   <table border="1">
     <thead>
       <tr style="text-align: right;">
         <th></th>
-        <th>Latitude</th>
         <th>Longitude</th>
+        <th>Latitude</th>
         <th>Depth(km)</th>
         <th>Magnitude</th>
-        <th>Type Mag</th>
-        <th>Timestamp</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>count</td>
-        <td>58036.000000</td>
-        <td>58036.000000</td>
-        <td>58036.000000</td>
-        <td>58036.000000</td>
-        <td>58036.000000</td>
-        <td>5.803600e+04</td>
+        <td>11347.000000</td>
+        <td>11347.000000</td>
+        <td>11347.000000</td>
+        <td>11347.000000</td>
       </tr>
       <tr>
         <td>mean</td>
-        <td>34.806854</td>
-        <td>-8.356855</td>
-        <td>11.450831</td>
-        <td>1.881846</td>
-        <td>4.031153</td>
-        <td>1.596182e+18</td>
+        <td>-17.844062</td>
+        <td>28.568893</td>
+        <td>14.089345</td>
+        <td>2.432423</td>
       </tr>
       <tr>
         <td>std</td>
-        <td>5.263327</td>
-        <td>7.119341</td>
-        <td>11.111965</td>
-        <td>0.763577</td>
-        <td>0.291332</td>
-        <td>4.954865e+16</td>
+        <td>0.027345</td>
+        <td>0.021899</td>
+        <td>8.624787</td>
+        <td>0.705282</td>
       </tr>
       <tr>
         <td>min</td>
-        <td>26.349300</td>
-        <td>-19.930400</td>
+        <td>-17.995800</td>
+        <td>28.310200</td>
         <td>0.000000</td>
-        <td>-0.500000</td>
-        <td>3.000000</td>
-        <td>1.483232e+18</td>
+        <td>0.200000</td>
       </tr>
       <tr>
         <td>25%</td>
-        <td>28.563800</td>
-        <td>-16.672325</td>
-        <td>3.000000</td>
-        <td>1.400000</td>
-        <td>4.000000</td>
-        <td>1.559327e+18</td>
+        <td>-17.854100</td>
+        <td>28.558000</td>
+        <td>10.100000</td>
+        <td>1.900000</td>
       </tr>
       <tr>
         <td>50%</td>
-        <td>35.989200</td>
-        <td>-4.785250</td>
-        <td>10.000000</td>
-        <td>1.800000</td>
-        <td>4.000000</td>
-        <td>1.612319e+18</td>
+        <td>-17.838700</td>
+        <td>28.564000</td>
+        <td>11.300000</td>
+        <td>2.600000</td>
       </tr>
       <tr>
         <td>75%</td>
-        <td>37.890700</td>
-        <td>-3.234500</td>
-        <td>14.300000</td>
-        <td>2.400000</td>
-        <td>4.000000</td>
-        <td>1.635568e+18</td>
+        <td>-17.829700</td>
+        <td>28.574300</td>
+        <td>13.900000</td>
+        <td>2.900000</td>
       </tr>
       <tr>
         <td>max</td>
-        <td>44.985000</td>
-        <td>5.996600</td>
-        <td>115.000000</td>
-        <td>6.000000</td>
-        <td>6.000000</td>
-        <td>1.663232e+18</td>
+        <td>-17.705700</td>
+        <td>28.697800</td>
+        <td>46.900000</td>
+        <td>5.100000</td>
       </tr>
     </tbody>
   </table>
 </table-wrap>
 </sec>
 </sec>
-<sec id="cell-8f6c52f4-b28d-4c22-88c7-e1b17298cae7-nb-1" specific-use="notebook-code">
+<sec id="cell-4dd79364-nb-1" specific-use="notebook-code">
 <code language="python">df.plot.scatter(x=&quot;Longitude&quot;, y=&quot;Latitude&quot;, figsize=(12,12), grid=&quot;on&quot;);</code>
-<sec id="8f6c52f4-b28d-4c22-88c7-e1b17298cae7-output-0-nb-1" specific-use="notebook-output">
+<sec id="cell-4dd79364-output-0-nb-1" specific-use="notebook-output">
 <graphic mimetype="image" mime-subtype="png" xlink:href="data-screening_files/figure-jats/cell-5-output-1.png" />
 </sec>
 </sec>
-<sec id="af76febd-11cd-4927-8476-5d8258ede326-nb-1" specific-use="notebook-content">
-<sec id="filter-down-to-la-palma-events-only-nb-1">
-  <title>Filter down to La Palma events only</title>
+<sec id="b7693413-nb-1" specific-use="notebook-content">
+<sec id="filter-nb-1">
+  <title>Filter</title>
   <p>Also some rows seem to be missing depth measurements, (see
   differences in the <bold>count</bold> for columns above) - take only
   rows with valid depths</p>
   </sec>
-  <sec id="c34e47c1-c9cb-4207-978c-292333863e9b-nb-1" specific-use="notebook-code">
-  <code language="python">df = df[(df['Latitude'] &lt; 28.7) &amp; (df['Latitude'] &gt; 28.3) &amp; (df['Longitude'] &lt; -17.7) &amp; (df['Longitude'] &gt; -18)]
-df = df[df['Depth(km)'].notna()]
+  <sec id="b1d07ed9-nb-1" specific-use="notebook-code">
+  <code language="python">df = df[df['Depth(km)'].notna()]
 df.describe()</code>
-  <sec id="c34e47c1-c9cb-4207-978c-292333863e9b-output-0-nb-1" specific-use="notebook-output">
+  <sec id="b1d07ed9-output-0-nb-1" specific-use="notebook-output">
   <table-wrap>
     <table border="1">
       <thead>
         <tr style="text-align: right;">
           <th></th>
-          <th>Latitude</th>
           <th>Longitude</th>
+          <th>Latitude</th>
           <th>Depth(km)</th>
           <th>Magnitude</th>
-          <th>Type Mag</th>
-          <th>Timestamp</th>
         </tr>
       </thead>
       <tbody>
@@ -742,93 +685,77 @@ df.describe()</code>
           <td>11347.000000</td>
           <td>11347.000000</td>
           <td>11347.000000</td>
-          <td>11347.0</td>
-          <td>1.134700e+04</td>
         </tr>
         <tr>
           <td>mean</td>
-          <td>28.568893</td>
           <td>-17.844062</td>
+          <td>28.568893</td>
           <td>14.089345</td>
           <td>2.432423</td>
-          <td>4.0</td>
-          <td>1.633359e+18</td>
         </tr>
         <tr>
           <td>std</td>
-          <td>0.021899</td>
           <td>0.027345</td>
+          <td>0.021899</td>
           <td>8.624787</td>
           <td>0.705282</td>
-          <td>0.0</td>
-          <td>2.007970e+16</td>
         </tr>
         <tr>
           <td>min</td>
-          <td>28.310200</td>
           <td>-17.995800</td>
+          <td>28.310200</td>
           <td>0.000000</td>
           <td>0.200000</td>
-          <td>4.0</td>
-          <td>1.489103e+18</td>
         </tr>
         <tr>
           <td>25%</td>
-          <td>28.558000</td>
           <td>-17.854100</td>
+          <td>28.558000</td>
           <td>10.100000</td>
           <td>1.900000</td>
-          <td>4.0</td>
-          <td>1.633777e+18</td>
         </tr>
         <tr>
           <td>50%</td>
-          <td>28.564000</td>
           <td>-17.838700</td>
+          <td>28.564000</td>
           <td>11.300000</td>
           <td>2.600000</td>
-          <td>4.0</td>
-          <td>1.635671e+18</td>
         </tr>
         <tr>
           <td>75%</td>
-          <td>28.574300</td>
           <td>-17.829700</td>
+          <td>28.574300</td>
           <td>13.900000</td>
           <td>2.900000</td>
-          <td>4.0</td>
-          <td>1.638294e+18</td>
         </tr>
         <tr>
           <td>max</td>
-          <td>28.697800</td>
           <td>-17.705700</td>
+          <td>28.697800</td>
           <td>46.900000</td>
           <td>5.100000</td>
-          <td>4.0</td>
-          <td>1.663128e+18</td>
         </tr>
       </tbody>
     </table>
   </table-wrap>
   </sec>
   </sec>
-  <sec id="cell-306ba432-daa7-4126-9b5a-689e1ad41e3a-nb-1" specific-use="notebook-code">
+  <sec id="cell-412d8777-nb-1" specific-use="notebook-code">
   <code language="python">plt.figure(figsize=(20,6))
 plt.subplot(1,3,1)
 df[&quot;Latitude&quot;].plot.hist(bins=20, density=True)
-df[&quot;Latitude&quot;].plot.kde()
 plt.subplot(1,3,2)
 df[&quot;Longitude&quot;].plot.hist(bins=20, density=True)
-df[&quot;Longitude&quot;].plot.kde()
 plt.subplot(1,3,3)
-df[&quot;Depth(km)&quot;].plot.hist(bins=50, density=True)
-_=df[&quot;Depth(km)&quot;].plot.kde()</code>
-  <sec id="306ba432-daa7-4126-9b5a-689e1ad41e3a-output-0-nb-1" specific-use="notebook-output">
-  <graphic mimetype="image" mime-subtype="png" xlink:href="data-screening_files/figure-jats/cell-7-output-1.png" />
+df[&quot;Depth(km)&quot;].plot.hist(bins=50, density=True)</code>
+  <sec id="cell-412d8777-output-0-nb-1" specific-use="notebook-output">
+  <preformat>&lt;Axes: ylabel='Frequency'&gt;</preformat>
+  </sec>
+  <sec id="cell-412d8777-output-1-nb-1" specific-use="notebook-output">
+  <graphic mimetype="image" mime-subtype="png" xlink:href="data-screening_files/figure-jats/cell-7-output-2.png" />
   </sec>
   </sec>
-  <sec id="cell-1bf2e599-12d6-40e9-bd99-db68ae6e72f5-nb-1" specific-use="notebook-content">
+  <sec id="bef77ce1-nb-1" specific-use="notebook-content">
 </sec>
 <sec id="spatial-plot-nb-1">
   <title>Spatial Plot</title>
@@ -838,7 +765,7 @@ _=df[&quot;Depth(km)&quot;].plot.kde()</code>
   <code language="python">from matplotlib import colormaps
 cmap = colormaps['viridis_r']
 ax = df.plot.scatter(x=&quot;Longitude&quot;, y=&quot;Latitude&quot;, 
-                     s=40-df[&quot;Depth(km)&quot;], c=df[&quot;Magnitude&quot;], 
+                     s=47-df[&quot;Depth(km)&quot;], c=df[&quot;Magnitude&quot;], 
                      figsize=(12,10), grid=&quot;on&quot;, cmap=cmap)
 colorbar = ax.collections[0].colorbar
 colorbar.set_label(&quot;Magnitude&quot;)
@@ -852,42 +779,18 @@ plt.show()</code>
   </fig>
   </sec>
   </sec>
-  <sec id="c55cd6b8-7e01-4c2d-aa71-1649ca8aee01-nb-1" specific-use="notebook-content">
+  <sec id="cell-6778b2a9-nb-1" specific-use="notebook-content">
   <sec id="timeline-plot-nb-1">
     <title>Timeline Plot</title>
     <p>Scatter plot the event time series and look for any quantization
     issues. Have times &amp; dates been loaded correctly?</p>
     </sec>
-    <sec id="cell-58a022c7-f34c-499d-a749-aa01f0e1b5db-nb-1" specific-use="notebook-code">
+    <sec id="cell-6699766d-nb-1" specific-use="notebook-code">
     <code language="python">ax = df.plot.scatter(x='DateTime', y='Depth(km)', figsize=(20,8))
 ax.set_ylim(50,0);</code>
-    <sec id="58a022c7-f34c-499d-a749-aa01f0e1b5db-output-0-nb-1" specific-use="notebook-output">
+    <sec id="cell-6699766d-output-0-nb-1" specific-use="notebook-output">
     <graphic mimetype="image" mime-subtype="png" xlink:href="data-screening_files/figure-jats/cell-9-output-1.png" />
     </sec>
-    </sec>
-    <sec id="f0a0d350-ed14-4128-9efe-cfcf2d05a66b-nb-1" specific-use="notebook-code">
-    <code language="python">df['Swarm'] = 0
-df.loc[(df['Date'] &gt;= '2017-10-01') &amp; (df['Date'] &lt;= '2017-10-31'), 'Swarm'] = 1
-df.loc[(df['Date'] &gt;= '2019-02-01') &amp; (df['Date'] &lt;= '2019-02-28'), 'Swarm'] = 2
-df.loc[(df['Date'] &gt;= '2020-07-21') &amp; (df['Date'] &lt;= '2020-08-05'), 'Swarm'] = 3
-df.loc[(df['Date'] &gt;= '2020-10-04') &amp; (df['Date'] &lt;= '2020-10-10'), 'Swarm'] = 4
-df.loc[(df['Date'] &gt;= '2020-10-11') &amp; (df['Date'] &lt;= '2020-10-22'), 'Swarm'] = 5
-df.loc[(df['Date'] &gt;= '2020-11-15') &amp; (df['Date'] &lt;= '2020-11-29'), 'Swarm'] = 6
-df.loc[(df['Date'] &gt;= '2020-12-10') &amp; (df['Date'] &lt;= '2020-12-29'), 'Swarm'] = 7
-df.loc[(df['Date'] &gt;= '2020-12-10') &amp; (df['Date'] &lt;= '2020-12-31'), 'Swarm'] = 8
-df.loc[(df['Date'] &gt;= '2021-01-15') &amp; (df['Date'] &lt;= '2021-02-07'), 'Swarm'] = 9
-df.loc[(df['Date'] &gt;= '2021-06-01') &amp; (df['Date'] &lt;= '2021-06-30'), 'Swarm'] = 10
-df.loc[(df['Date'] &gt;= '2021-07-01'), 'Swarm'] = None
-
-
-df['Phase'] = 0;
-df.loc[(df['Date'] &gt;= '2021-09-11') &amp; (df['Date'] &lt;= '2021-09-30'), 'Phase'] = 1
-df.loc[(df['Date'] &gt;= '2021-10-01') &amp; (df['Date'] &lt;= '2021-11-30'), 'Phase'] = 2
-df.loc[(df['Date'] &gt;= '2021-12-01') &amp; (df['Date'] &lt;= '2021-12-31'), 'Phase'] = 3
-df.loc[(df['Date'] &gt;= '2021-12-31'), 'Phase'] = 4</code>
-    </sec>
-    <sec id="abd100da-cf39-47e4-8287-de4e9f5e3f6d-nb-1" specific-use="notebook-code">
-    <code language="python">df.to_csv(&quot;../data/lapalma_ign.csv&quot;, index=False)</code>
     </sec>
   </sec>
 </sec>
