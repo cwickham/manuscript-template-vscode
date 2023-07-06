@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
     <meta charset="utf-8">
-    <meta name="generator" content="quarto-1.4.189">
+    <meta name="generator" content="quarto-1.4.192">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -119,7 +119,7 @@
       <a href="../index.html" class="btn btn-outline-secondary quarto-back-link"><i class="bi bi-caret-left"></i> Back to Article</a>
       <h6><i class="bi bi-journal-code"></i> Data Screening</h6>
 
-            <a href="data-screening.qmd" class="btn btn-primary quarto-download-embed" data-noresolveinput="true" download="data-screening.qmd">Download Source</a>
+            <a href="../notebooks/data-screening.qmd" class="btn btn-primary quarto-download-embed" download="data-screening.qmd">Download Source</a>
           </div>
 
      <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
@@ -151,17 +151,17 @@
   </div>
   
 
-</header>   <div id="8ac7833e" class="cell markdown">
+</header>   <div id="857a9bc3" class="cell markdown">
 
 </div>
-<div class="cell-container column-page-left"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="8553c1fd" class="cell" data-execution_count="1">
+<div class="cell-container column-page-left"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="62d3ab4e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
-<div id="821dce5a" class="cell markdown">
+<div id="5f2aaf64" class="cell markdown">
 <p>Import <code>la-palma.csv</code> - a clean subset of <a href="https://github.com/Notebooks-Now/submission-quarto-full/blob/main/data/catalogoComunSV_1663233588717.csv"><code>catalogoComunSV_1663233588717.csv</code></a>:</p>
 </div>
-<div class="cell-container column-page-left"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="b30ed243" class="cell" data-execution_count="2">
+<div class="cell-container column-page-left"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="384a546d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'la-palma.csv'</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'DateTime'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'DateTime'</span>])</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.sort_values(by<span class="op">=</span>[<span class="st">'DateTime'</span>], ascending<span class="op">=</span><span class="va">True</span>)</span>
@@ -228,7 +228,7 @@
 </div>
 </div>
 </div></div>
-<div class="cell-container column-page-left"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="3923071e" class="cell" data-execution_count="3">
+<div class="cell-container column-page-left"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="cb16f88a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -307,19 +307,19 @@
 </div>
 </div>
 </div></div>
-<div class="cell-container column-page-left"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="d8472e07" class="cell" data-execution_count="4">
+<div class="cell-container column-page-left"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="6d791164" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.plot.scatter(x<span class="op">=</span><span class="st">"Longitude"</span>, y<span class="op">=</span><span class="st">"Latitude"</span>, figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">12</span>), grid<span class="op">=</span><span class="st">"on"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="data-screening_files/figure-html/cell-5-output-1.png" width="978" height="947"></p>
 </div>
 </div></div>
-<div id="873da2c4" class="cell markdown">
+<div id="9eb7dbea" class="cell markdown">
 <section id="filter" class="level3">
 <h3 class="anchored" data-anchor-id="filter">Filter</h3>
 <p>Also some rows seem to be missing depth measurements, (see differences in the <strong>count</strong> for columns above) - take only rows with valid depths</p>
 </section>
 </div>
-<div class="cell-container column-page-left"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="d583c396" class="cell" data-execution_count="5">
+<div class="cell-container column-page-left"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="af0d31c9" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'Depth(km)'</span>].notna()]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -399,7 +399,7 @@
 </div>
 </div>
 </div></div>
-<div class="cell-container column-page-left"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="4fb664db" class="cell" data-execution_count="6">
+<div class="cell-container column-page-left"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="a8a5821b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">6</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Latitude"</span>].plot.hist(bins<span class="op">=</span><span class="dv">20</span>, density<span class="op">=</span><span class="va">True</span>)</span>
@@ -414,7 +414,7 @@
 <p><img src="data-screening_files/figure-html/cell-7-output-2.png" width="1565" height="485"></p>
 </div>
 </div></div>
-<div id="c0551d65" class="cell markdown">
+<div id="3741586c" class="cell markdown">
 <section id="spatial-plot" class="level2">
 <h2 class="anchored" data-anchor-id="spatial-plot">Spatial Plot</h2>
 <p>Scatter plot the spatial locations of events</p>
@@ -439,19 +439,13 @@
 </div>
 </div>
 </div></div>
-<div id="82dbe42d" class="cell markdown">
+<div id="e0b521da" class="cell markdown">
 <section id="timeline-plot" class="level3">
 <h3 class="anchored" data-anchor-id="timeline-plot">Timeline Plot</h3>
 <p>Scatter plot the event time series and look for any quantization issues. Have times &amp; dates been loaded correctly?</p>
+<p>ax = df.plot.scatter(x=‘DateTime’, y=‘Depth(km)’, figsize=(20,8)) ax.set_ylim(50,0);</p>
 </section>
 </div>
-<div class="cell-container column-page-left"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="384992a8" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> df.plot.scatter(x<span class="op">=</span><span class="st">'DateTime'</span>, y<span class="op">=</span><span class="st">'Depth(km)'</span>, figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">8</span>))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">50</span>,<span class="dv">0</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="data-screening_files/figure-html/cell-9-output-1.png" width="1552" height="656"></p>
-</div>
-</div></div>
      </main>
 <!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

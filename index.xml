@@ -123,17 +123,17 @@ Nacional (IGN). …</p>
   <p>Let <inline-formula><alternatives>
   <tex-math><![CDATA[x]]></tex-math>
   <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>x</mml:mi></mml:math></alternatives></inline-formula>
-  denote the number of eruptions in a year. Then
+  denote the number of eruptions in a year. Then,
   <inline-formula><alternatives>
   <tex-math><![CDATA[x]]></tex-math>
   <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>x</mml:mi></mml:math></alternatives></inline-formula>
-  can be modeled by a Poisson distribution:</p>
+  can be modeled by a Poisson distribution</p>
   <p><styled-content id="eq-poisson"><disp-formula><alternatives>
   <tex-math><![CDATA[
-  p(x)=\frac{e^{-\lambda} \lambda^{x}}{x !}
+  p(x) = \frac{e^{-\lambda} \lambda^{x}}{x !}
    \qquad(1)]]></tex-math>
   <mml:math display="block" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mi>p</mml:mi><mml:mrow><mml:mo stretchy="true" form="prefix">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="true" form="postfix">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msup><mml:mi>e</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>λ</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mi>λ</mml:mi><mml:mi>x</mml:mi></mml:msup></mml:mrow><mml:mrow><mml:mi>x</mml:mi><mml:mi>!</mml:mi></mml:mrow></mml:mfrac><mml:mspace width="2.0em"></mml:mspace><mml:mrow><mml:mo stretchy="true" form="prefix">(</mml:mo><mml:mn>1</mml:mn><mml:mo stretchy="true" form="postfix">)</mml:mo></mml:mrow></mml:mrow></mml:math></alternatives></disp-formula></styled-content></p>
-  <p>Where <inline-formula><alternatives>
+  <p>where <inline-formula><alternatives>
   <tex-math><![CDATA[\lambda]]></tex-math>
   <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>λ</mml:mi></mml:math></alternatives></inline-formula>
   is the rate of eruptions per year. Using
@@ -300,11 +300,11 @@ Nacional (IGN). …</p>
 </front-stub>
 
 <body>
-<sec id="fee08d37-nb-article" specific-use="notebook-content">
+<sec id="cell-711ec0a4-nb-article" specific-use="notebook-content">
 <sec id="introduction-nb-article">
   <title>1 Introduction</title>
   </sec>
-  <sec id="cell-0d74d37a-nb-article" specific-use="notebook-code">
+  <sec id="cell-9170849d-nb-article" specific-use="notebook-code">
   <code language="python">import matplotlib.pyplot as plt
 import numpy as np
 eruptions = [1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021]</code>
@@ -323,14 +323,14 @@ plt.show()</code>
   </fig>
   </sec>
   </sec>
-  <sec id="a969c123-nb-article" specific-use="notebook-code">
+  <sec id="c92c24b0-nb-article" specific-use="notebook-code">
   <code language="python">avg_years_between_eruptions = np.mean(np.diff(eruptions[:-1]))
 avg_years_between_eruptions</code>
-  <sec id="a969c123-output-0-nb-article" specific-use="notebook-output">
+  <sec id="c92c24b0-output-0-nb-article" specific-use="notebook-output">
   <preformat>79.83333333333333</preformat>
   </sec>
   </sec>
-  <sec id="ee396865-nb-article" specific-use="notebook-content">
+  <sec id="cell-1a62b8e8-nb-article" specific-use="notebook-content">
   <p>Based on data up to and including 1971, eruptions on La Palma
   happen every 79.8 years on average.</p>
   <p>Studies of the magma systems feeding the volcano, such as Marrero
@@ -346,17 +346,17 @@ avg_years_between_eruptions</code>
   <p>Let <inline-formula><alternatives>
   <tex-math><![CDATA[x]]></tex-math>
   <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>x</mml:mi></mml:math></alternatives></inline-formula>
-  denote the number of eruptions in a year. Then
+  denote the number of eruptions in a year. Then,
   <inline-formula><alternatives>
   <tex-math><![CDATA[x]]></tex-math>
   <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>x</mml:mi></mml:math></alternatives></inline-formula>
-  can be modeled by a Poisson distribution:</p>
+  can be modeled by a Poisson distribution</p>
   <p><styled-content id="eq-poisson-nb-article"><disp-formula><alternatives>
   <tex-math><![CDATA[
-  p(x)=\frac{e^{-\lambda} \lambda^{x}}{x !}
+  p(x) = \frac{e^{-\lambda} \lambda^{x}}{x !}
    \qquad(1)]]></tex-math>
   <mml:math display="block" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mi>p</mml:mi><mml:mrow><mml:mo stretchy="true" form="prefix">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="true" form="postfix">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msup><mml:mi>e</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>λ</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mi>λ</mml:mi><mml:mi>x</mml:mi></mml:msup></mml:mrow><mml:mrow><mml:mi>x</mml:mi><mml:mi>!</mml:mi></mml:mrow></mml:mfrac><mml:mspace width="2.0em"></mml:mspace><mml:mrow><mml:mo stretchy="true" form="prefix">(</mml:mo><mml:mn>1</mml:mn><mml:mo stretchy="true" form="postfix">)</mml:mo></mml:mrow></mml:mrow></mml:math></alternatives></disp-formula></styled-content></p>
-  <p>Where <inline-formula><alternatives>
+  <p>where <inline-formula><alternatives>
   <tex-math><![CDATA[\lambda]]></tex-math>
   <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>λ</mml:mi></mml:math></alternatives></inline-formula>
   is the rate of eruptions per year. Using
@@ -502,20 +502,20 @@ notebook by Steve Purves</fn>
 </front-stub>
 
 <body>
-<sec id="c28c7681-nb-1" specific-use="notebook-code">
+<sec id="aa1d0857-nb-1" specific-use="notebook-code">
 <code language="python">import pandas as pd
 import matplotlib.pyplot as plt</code>
 </sec>
-<sec id="cell-7a95c617-nb-1" specific-use="notebook-content">
+<sec id="cell-4b28d30c-nb-1" specific-use="notebook-content">
 <p>Import <monospace>la-palma.csv</monospace> - a clean subset of
 <ext-link ext-link-type="uri" xlink:href="https://github.com/Notebooks-Now/submission-quarto-full/blob/main/data/catalogoComunSV_1663233588717.csv"><monospace>catalogoComunSV_1663233588717.csv</monospace></ext-link>:</p>
 </sec>
-<sec id="c6053338-nb-1" specific-use="notebook-code">
+<sec id="eb5bf313-nb-1" specific-use="notebook-code">
 <code language="python">df = pd.read_csv('la-palma.csv')
 df['DateTime'] = pd.to_datetime(df['DateTime'])
 df = df.sort_values(by=['DateTime'], ascending=True)
 df.head()</code>
-<sec id="c6053338-output-0-nb-1" specific-use="notebook-output">
+<sec id="eb5bf313-output-0-nb-1" specific-use="notebook-output">
 <table-wrap>
   <table border="1">
     <thead>
@@ -574,9 +574,9 @@ df.head()</code>
 </table-wrap>
 </sec>
 </sec>
-<sec id="e01c7d39-nb-1" specific-use="notebook-code">
+<sec id="cell-13fa39ab-nb-1" specific-use="notebook-code">
 <code language="python">df.describe()</code>
-<sec id="e01c7d39-output-0-nb-1" specific-use="notebook-output">
+<sec id="cell-13fa39ab-output-0-nb-1" specific-use="notebook-output">
 <table-wrap>
   <table border="1">
     <thead>
@@ -650,23 +650,23 @@ df.head()</code>
 </table-wrap>
 </sec>
 </sec>
-<sec id="cell-4dd79364-nb-1" specific-use="notebook-code">
+<sec id="cell-80ec2aaa-nb-1" specific-use="notebook-code">
 <code language="python">df.plot.scatter(x=&quot;Longitude&quot;, y=&quot;Latitude&quot;, figsize=(12,12), grid=&quot;on&quot;);</code>
-<sec id="cell-4dd79364-output-0-nb-1" specific-use="notebook-output">
+<sec id="cell-80ec2aaa-output-0-nb-1" specific-use="notebook-output">
 <graphic mimetype="image" mime-subtype="png" xlink:href="data-screening_files/figure-jats/cell-5-output-1.png" />
 </sec>
 </sec>
-<sec id="b7693413-nb-1" specific-use="notebook-content">
+<sec id="a7fa3153-nb-1" specific-use="notebook-content">
 <sec id="filter-nb-1">
   <title>Filter</title>
   <p>Also some rows seem to be missing depth measurements, (see
   differences in the <bold>count</bold> for columns above) - take only
   rows with valid depths</p>
   </sec>
-  <sec id="b1d07ed9-nb-1" specific-use="notebook-code">
+  <sec id="bc7d5d71-nb-1" specific-use="notebook-code">
   <code language="python">df = df[df['Depth(km)'].notna()]
 df.describe()</code>
-  <sec id="b1d07ed9-output-0-nb-1" specific-use="notebook-output">
+  <sec id="bc7d5d71-output-0-nb-1" specific-use="notebook-output">
   <table-wrap>
     <table border="1">
       <thead>
@@ -740,7 +740,7 @@ df.describe()</code>
   </table-wrap>
   </sec>
   </sec>
-  <sec id="cell-412d8777-nb-1" specific-use="notebook-code">
+  <sec id="cell-40c7b934-nb-1" specific-use="notebook-code">
   <code language="python">plt.figure(figsize=(20,6))
 plt.subplot(1,3,1)
 df[&quot;Latitude&quot;].plot.hist(bins=20, density=True)
@@ -748,14 +748,14 @@ plt.subplot(1,3,2)
 df[&quot;Longitude&quot;].plot.hist(bins=20, density=True)
 plt.subplot(1,3,3)
 df[&quot;Depth(km)&quot;].plot.hist(bins=50, density=True)</code>
-  <sec id="cell-412d8777-output-0-nb-1" specific-use="notebook-output">
+  <sec id="cell-40c7b934-output-0-nb-1" specific-use="notebook-output">
   <preformat>&lt;Axes: ylabel='Frequency'&gt;</preformat>
   </sec>
-  <sec id="cell-412d8777-output-1-nb-1" specific-use="notebook-output">
+  <sec id="cell-40c7b934-output-1-nb-1" specific-use="notebook-output">
   <graphic mimetype="image" mime-subtype="png" xlink:href="data-screening_files/figure-jats/cell-7-output-2.png" />
   </sec>
   </sec>
-  <sec id="bef77ce1-nb-1" specific-use="notebook-content">
+  <sec id="cell-0fe6964e-nb-1" specific-use="notebook-content">
 </sec>
 <sec id="spatial-plot-nb-1">
   <title>Spatial Plot</title>
@@ -779,18 +779,13 @@ plt.show()</code>
   </fig>
   </sec>
   </sec>
-  <sec id="cell-6778b2a9-nb-1" specific-use="notebook-content">
+  <sec id="cell-7cb63c3e-nb-1" specific-use="notebook-content">
   <sec id="timeline-plot-nb-1">
     <title>Timeline Plot</title>
     <p>Scatter plot the event time series and look for any quantization
     issues. Have times &amp; dates been loaded correctly?</p>
-    </sec>
-    <sec id="cell-6699766d-nb-1" specific-use="notebook-code">
-    <code language="python">ax = df.plot.scatter(x='DateTime', y='Depth(km)', figsize=(20,8))
-ax.set_ylim(50,0);</code>
-    <sec id="cell-6699766d-output-0-nb-1" specific-use="notebook-output">
-    <graphic mimetype="image" mime-subtype="png" xlink:href="data-screening_files/figure-jats/cell-9-output-1.png" />
-    </sec>
+    <p>ax = df.plot.scatter(x=‘DateTime’, y=‘Depth(km)’, figsize=(20,8))
+    ax.set_ylim(50,0);</p>
     </sec>
   </sec>
 </sec>
