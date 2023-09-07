@@ -34,6 +34,7 @@ and Interchange DTD v1.2 20190208//EN" "JATS-archivearticle1.dtd">
 <given-names>Steve</given-names>
 </name>
 <string-name>Steve Purves</string-name>
+
 <email>steve@curvenote.com</email>
 <role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">Investigation</role>
 <role vocab="https://credit.niso.org" vocab-term="project
@@ -51,6 +52,7 @@ administration</role>
 <given-names>Rowan</given-names>
 </name>
 <string-name>Rowan Cockett</string-name>
+
 <xref ref-type="aff" rid="aff-1">a</xref>
 </contrib>
 </contrib-group>
@@ -70,10 +72,10 @@ administration</role>
 <corresp id="cor-1">steve@curvenote.com</corresp>
 </author-notes>
 
-<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2023-07-10">
+<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2023-09-07">
 <year>2023</year>
-<month>7</month>
-<day>10</day>
+<month>9</month>
+<day>7</day>
 </pub-date>
 
 
@@ -217,9 +219,6 @@ Nacional (IGN). …</p>
 <sec id="conclusion">
   <title>3 Conclusion</title>
 </sec>
-<sec id="references">
-  <title>References</title>
-</sec>
 </body>
 
 <back>
@@ -246,7 +245,7 @@ Nacional (IGN). …</p>
 </ref-list>
 </back>
 
-<sub-article article-type="notebook" id="nb-7-nb-article">
+<sub-article article-type="notebook" id="nb-8-nb-article">
 <front-stub>
 <title-group>
 <article-title>La Palma Earthquakes</article-title>
@@ -259,6 +258,7 @@ Nacional (IGN). …</p>
 <given-names>Steve</given-names>
 </name>
 <string-name>Steve Purves</string-name>
+
 <email>steve@curvenote.com</email>
 <role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">Investigation</role>
 <role vocab="https://credit.niso.org" vocab-term="project
@@ -276,6 +276,7 @@ administration</role>
 <given-names>Rowan</given-names>
 </name>
 <string-name>Rowan Cockett</string-name>
+
 <xref ref-type="aff" rid="aff-1-nb-article">a</xref>
 </contrib>
 </contrib-group>
@@ -304,11 +305,11 @@ Nacional (IGN). …</p>
 </front-stub>
 
 <body>
-<sec id="b457d83e-nb-article" specific-use="notebook-content">
+<sec id="cell-321d9992-nb-article" specific-use="notebook-content">
 <sec id="introduction-nb-article">
   <title>1 Introduction</title>
   </sec>
-  <sec id="cell-44f6deb5-nb-article" specific-use="notebook-code">
+  <sec id="a5dd21fc-nb-article" specific-use="notebook-code">
   <code language="python">import matplotlib.pyplot as plt
 import numpy as np
 eruptions = [1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021]</code>
@@ -327,14 +328,14 @@ plt.show()</code>
   </fig>
   </sec>
   </sec>
-  <sec id="cell-4e9694c5-nb-article" specific-use="notebook-code">
+  <sec id="cell-86046ea2-nb-article" specific-use="notebook-code">
   <code language="python">avg_years_between_eruptions = np.mean(np.diff(eruptions[:-1]))
 avg_years_between_eruptions</code>
-  <sec id="cell-4e9694c5-output-0-nb-article" specific-use="notebook-output">
+  <sec id="cell-86046ea2-output-0-nb-article" specific-use="notebook-output">
   <preformat>79.83333333333333</preformat>
   </sec>
   </sec>
-  <sec id="cell-098c405e-nb-article" specific-use="notebook-content">
+  <sec id="b471fd7f-nb-article" specific-use="notebook-content">
   <p>Based on data up to and including 1971, eruptions on La Palma
   happen every 79.8 years on average.</p>
   <p>Studies of the magma systems feeding the volcano, such as Marrero
@@ -464,19 +465,30 @@ plt.show()</code>
 <back>
 <ref-list>
   <ref id="ref-marrero2019-nb-article">
-    <mixed-citation>Marrero, José, Alicia García, Manuel Berrocoso,
-    Ángeles Llinares, Antonio Rodríguez-Losada, and R. Ortiz. 2019.
-    “Strategies for the Development of Volcanic Hazard Maps in
-    Monogenetic Volcanic Fields: The Example of La Palma (Canary
-    Islands).” <italic>Journal of Applied Volcanology</italic> 8 (July).
-    <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1186/s13617-019-0085-5">https://doi.org/10.1186/s13617-019-0085-5</ext-link>.</mixed-citation>
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Marrero</surname><given-names>José</given-names></name>
+        <name><surname>García</surname><given-names>Alicia</given-names></name>
+        <name><surname>Berrocoso</surname><given-names>Manuel</given-names></name>
+        <name><surname>Llinares</surname><given-names>Ángeles</given-names></name>
+        <name><surname>Rodríguez-Losada</surname><given-names>Antonio</given-names></name>
+        <name><surname>Ortiz</surname><given-names>R.</given-names></name>
+      </person-group>
+      <article-title>Strategies for the development of volcanic hazard maps in monogenetic volcanic fields: The example of La Palma (Canary Islands)</article-title>
+      <source>Journal of Applied Volcanology</source>
+      <year iso-8601-date="2019-07">2019</year><month>07</month>
+      <volume>8</volume>
+      <pub-id pub-id-type="doi">10.1186/s13617-019-0085-5</pub-id>
+      <fpage></fpage>
+      <lpage></lpage>
+    </element-citation>
   </ref>
 </ref-list>
 </back>
 
 
 </sub-article>
-<sub-article article-type="notebook" id="nb-3-nb-1">
+<sub-article article-type="notebook" id="nb-4-nb-1">
 <front-stub>
 <title-group>
 <article-title>Data Screening</article-title>
@@ -489,6 +501,7 @@ plt.show()</code>
 <given-names>Steve</given-names>
 </name>
 <string-name>Steve Purves</string-name>
+
 </contrib>
 <contrib contrib-type="author">
 <name>
@@ -496,6 +509,7 @@ plt.show()</code>
 <given-names>Charlotte</given-names>
 </name>
 <string-name>Charlotte Wickham</string-name>
+
 <xref ref-type="author-note" rid="auth-note-2-nb-1">2</xref>
 </contrib>
 </contrib-group>
@@ -506,20 +520,20 @@ notebook by Steve Purves</fn>
 </front-stub>
 
 <body>
-<sec id="c7ce6856-nb-1" specific-use="notebook-code">
-<code language="python">import pandas as pd
-import matplotlib.pyplot as plt</code>
+<sec id="ef09de95-nb-1" specific-use="notebook-code">
+<preformat>import pandas as pd
+import matplotlib.pyplot as plt</preformat>
 </sec>
-<sec id="c598cdea-nb-1" specific-use="notebook-content">
+<sec id="b1f6c734-nb-1" specific-use="notebook-content">
 <p>Import <monospace>la-palma.csv</monospace> - a clean subset of
 <ext-link ext-link-type="uri" xlink:href="https://github.com/Notebooks-Now/submission-quarto-full/blob/main/data/catalogoComunSV_1663233588717.csv"><monospace>catalogoComunSV_1663233588717.csv</monospace></ext-link>:</p>
 </sec>
-<sec id="cell-1243c751-nb-1" specific-use="notebook-code">
-<code language="python">df = pd.read_csv('la-palma.csv')
+<sec id="b7f34589-nb-1" specific-use="notebook-code">
+<preformat>df = pd.read_csv('la-palma.csv')
 df['DateTime'] = pd.to_datetime(df['DateTime'])
 df = df.sort_values(by=['DateTime'], ascending=True)
-df.head()</code>
-<sec id="cell-1243c751-output-0-nb-1" specific-use="notebook-output">
+df.head()</preformat>
+<sec id="b7f34589-output-0-nb-1" specific-use="notebook-output">
 <table-wrap>
   <table border="1">
     <thead>
@@ -578,9 +592,9 @@ df.head()</code>
 </table-wrap>
 </sec>
 </sec>
-<sec id="ef1b7e7f-nb-1" specific-use="notebook-code">
-<code language="python">df.describe()</code>
-<sec id="ef1b7e7f-output-0-nb-1" specific-use="notebook-output">
+<sec id="cell-77e427ac-nb-1" specific-use="notebook-code">
+<preformat>df.describe()</preformat>
+<sec id="cell-77e427ac-output-0-nb-1" specific-use="notebook-output">
 <table-wrap>
   <table border="1">
     <thead>
@@ -654,23 +668,23 @@ df.head()</code>
 </table-wrap>
 </sec>
 </sec>
-<sec id="cell-82c1e4fa-nb-1" specific-use="notebook-code">
-<code language="python">df.plot.scatter(x=&quot;Longitude&quot;, y=&quot;Latitude&quot;, figsize=(12,12), grid=&quot;on&quot;);</code>
-<sec id="cell-82c1e4fa-output-0-nb-1" specific-use="notebook-output">
+<sec id="cell-0f7a000a-nb-1" specific-use="notebook-code">
+<preformat>df.plot.scatter(x=&quot;Longitude&quot;, y=&quot;Latitude&quot;, figsize=(12,12), grid=&quot;on&quot;);</preformat>
+<sec id="cell-0f7a000a-output-0-nb-1" specific-use="notebook-output">
 <graphic mimetype="image" mime-subtype="png" xlink:href="data-screening_files/figure-jats/cell-5-output-1.png" />
 </sec>
 </sec>
-<sec id="f54772a5-nb-1" specific-use="notebook-content">
+<sec id="cell-9a175953-nb-1" specific-use="notebook-content">
 <sec id="filter-nb-1">
   <title>Filter</title>
   <p>Also some rows seem to be missing depth measurements, (see
   differences in the <bold>count</bold> for columns above) - take only
   rows with valid depths</p>
   </sec>
-  <sec id="cell-7ebbdd02-nb-1" specific-use="notebook-code">
-  <code language="python">df = df[df['Depth(km)'].notna()]
-df.describe()</code>
-  <sec id="cell-7ebbdd02-output-0-nb-1" specific-use="notebook-output">
+  <sec id="cbf27bd6-nb-1" specific-use="notebook-code">
+  <preformat>df = df[df['Depth(km)'].notna()]
+df.describe()</preformat>
+  <sec id="cbf27bd6-output-0-nb-1" specific-use="notebook-output">
   <table-wrap>
     <table border="1">
       <thead>
@@ -744,29 +758,32 @@ df.describe()</code>
   </table-wrap>
   </sec>
   </sec>
-  <sec id="cell-81fb3229-nb-1" specific-use="notebook-code">
-  <code language="python">plt.figure(figsize=(20,6))
+  <sec id="cell-7514c024-nb-1" specific-use="notebook-code">
+  <preformat>plt.figure(figsize=(20,6))
 plt.subplot(1,3,1)
 df[&quot;Latitude&quot;].plot.hist(bins=20, density=True)
 plt.subplot(1,3,2)
 df[&quot;Longitude&quot;].plot.hist(bins=20, density=True)
 plt.subplot(1,3,3)
-df[&quot;Depth(km)&quot;].plot.hist(bins=50, density=True)</code>
-  <sec id="cell-81fb3229-output-0-nb-1" specific-use="notebook-output">
+df[&quot;Depth(km)&quot;].plot.hist(bins=50, density=True)</preformat>
+  <sec id="cell-7514c024-output-0-nb-1" specific-use="notebook-output">
   <preformat>&lt;Axes: ylabel='Frequency'&gt;</preformat>
   </sec>
-  <sec id="cell-81fb3229-output-1-nb-1" specific-use="notebook-output">
+  <sec id="cell-7514c024-output-1-nb-1" specific-use="notebook-output">
   <graphic mimetype="image" mime-subtype="png" xlink:href="data-screening_files/figure-jats/cell-7-output-2.png" />
   </sec>
   </sec>
-  <sec id="dfb2bcda-nb-1" specific-use="notebook-content">
+  <sec id="b0d1ce09-nb-1" specific-use="notebook-content">
 </sec>
 <sec id="spatial-plot-nb-1">
   <title>Spatial Plot</title>
   <p>Scatter plot the spatial locations of events</p>
   </sec>
   <sec id="cell-fig-spatial-plot-nb-1" specific-use="notebook-code">
-  <code language="python">from matplotlib import colormaps
+  <preformat>#| label: fig-spatial-plot
+#| fig-cap: Locations of earthquakes on La Palma since 2017.
+#| fig-alt: A scatterplot of earthquake locations plotting latitude against longitude.
+from matplotlib import colormaps
 cmap = colormaps['viridis_r']
 ax = df.plot.scatter(x=&quot;Longitude&quot;, y=&quot;Latitude&quot;, 
                      s=47-df[&quot;Depth(km)&quot;], c=df[&quot;Magnitude&quot;], 
@@ -774,16 +791,16 @@ ax = df.plot.scatter(x=&quot;Longitude&quot;, y=&quot;Latitude&quot;,
 colorbar = ax.collections[0].colorbar
 colorbar.set_label(&quot;Magnitude&quot;)
 
-plt.show()</code>
+plt.show()</preformat>
   <sec id="cell-fig-spatial-plot-output-0-nb-1" specific-use="notebook-output">
   <fig id="fig-spatial-plot-nb-1">
-    <caption><p>Figure 1: Locations of earthquakes on La Palma since
+    <caption><p>Locations of earthquakes on La Palma since
     2017.</p></caption>
     <graphic mimetype="image" mime-subtype="png" xlink:href="data-screening_files/figure-jats/fig-spatial-plot-output-1.png" />
   </fig>
   </sec>
   </sec>
-  <sec id="a02cb71f-nb-1" specific-use="notebook-content">
+  <sec id="a663e11a-nb-1" specific-use="notebook-content">
   <sec id="timeline-plot-nb-1">
     <title>Timeline Plot</title>
     <p>Scatter plot the event time series and look for any quantization
